@@ -1,0 +1,25 @@
+{% extends 'extras/navegacion.html' %}
+
+{% block pag %}
+<h1>Actualizar Store</h1>
+
+<form method="get">
+    <label for="kword">Buscar Store por nombre:</label>
+    <input type="text" name="kword" id="kword" class="textinp">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if store %}
+    <form method="post">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <input type="hidden" name="name_original" value="{{ store.name }}">
+        <button type="submit">Actualizar Store</button>
+    </form>
+{% endif %}
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% endblock %}

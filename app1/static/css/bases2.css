@@ -1,0 +1,516 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;  /* Cambiado */
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR (MENÚ PRINCIPAL) ===== */
+.navbar {
+    background: linear-gradient(135deg, #4a1d96, #7c3aed);  /* Cambiado */
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* Cambiado */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Contenedor del menú principal */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cada item del menú */
+.menu > li {
+    position: relative;
+}
+
+/* Enlaces del menú principal */
+.menu > li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 24px;
+    display: block;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto hover en enlaces principales */
+.menu > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.15);  /* Cambiado */
+    border-bottom: 3px solid #f59e0b;  /* Cambiado */
+    padding-bottom: 15px;
+}
+
+/* Flecha en los submenús */
+.submenu-toggle::after {
+    content: " ▾";
+    font-size: 12px;
+    margin-left: 8px;
+    opacity: 0.9;  /* Cambiado */
+}
+
+/* ===== SUBMENÚS ===== */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    padding: 8px 0;
+    margin-top: 0;
+    list-style: none;
+    border-radius: 0 0 8px 8px;
+    min-width: 220px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);  /* Cambiado */
+    z-index: 1000;
+    
+    /* Oculto por defecto */
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-top: 3px solid #f59e0b;  /* Cambiado */
+}
+
+/* Mostrar submenú cuando se pasa el mouse sobre el contenedor */
+.submenu-container:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Items dentro del submenú */
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    color: #4a1d96;  /* Cambiado */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 12px 24px;
+    display: block;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Efecto hover en items del submenú */
+.submenu li a:hover {
+    background-color: #faf5ff;  /* Cambiado */
+    color: #7c3aed;  /* Cambiado */
+    border-left: 4px solid #7c3aed;  /* Cambiado */
+    padding-left: 20px;
+}
+
+/* Separador entre items del submenú */
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #e9d5ff;  /* Cambiado */
+}
+
+/* ===== CONTENIDO PRINCIPAL - MODIFICADO PARA CENTRAR ===== */
+.all {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);  /* Cambiado */
+    min-height: 500px;
+    
+    /* Flexbox para centrar contenido interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+}
+
+/* ===== REGLAS PARA CENTRAR CONTENIDO DENTRO DE .all ===== */
+
+/* Centrar todos los elementos hijos directos */
+.all > * {
+    width: 100%;
+    max-width: 900px; /* Controla el ancho máximo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centrar títulos */
+.all h1, .all h2, .all h3 {
+    text-align: center;
+    color: #4a1d96;  /* Cambiado */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f3f4f6;  /* Cambiado */
+    width: 100%;
+}
+
+.all h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid #7c3aed;  /* Cambiado */
+}
+
+.all h2 {
+    font-size: 2rem;
+    color: #5b21b6;  /* Cambiado */
+}
+
+.all h3 {
+    font-size: 1.5rem;
+    color: #6d28d9;  /* Cambiado */
+}
+
+/* Centrar párrafos */
+.all p {
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centrar listas */
+.all ul, .all ol {
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    padding-left: 30px;
+}
+
+.all li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Centrar tablas */
+.all table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);  /* Cambiado */
+}
+
+.all table th, .all table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #e5e7eb;  /* Cambiado */
+}
+
+.all table th {
+    background-color: #7c3aed;  /* Cambiado */
+    color: white;
+    font-weight: 600;
+}
+
+.all table tr:nth-child(even) {
+    background-color: #faf5ff;  /* Cambiado */
+}
+
+/* Centrar formularios */
+.all form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 30px;
+    background: #faf5ff;  /* Cambiado */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);  /* Cambiado */
+}
+
+.all form .form-group {
+    margin-bottom: 20px;
+}
+
+.all form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a1d96;  /* Cambiado */
+    text-align: left;
+}
+
+.all form input[type="text"],
+.all form input[type="email"],
+.all form input[type="number"],
+.all form input[type="password"],
+.all form select,
+.all form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd6fe;  /* Cambiado */
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.all form input:focus,
+.all form select:focus,
+.all form textarea:focus {
+    outline: none;
+    border-color: #7c3aed;  /* Cambiado */
+}
+
+/* Centrar botones */
+.all button,
+.all .btn,
+.all input[type="submit"],
+.all input[type="button"] {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background: #7c3aed;  /* Cambiado */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 200px;
+    text-align: center;
+}
+
+.all button:hover,
+.all .btn:hover,
+.all input[type="submit"]:hover,
+.all input[type="button"]:hover {
+    background: #6d28d9;  /* Cambiado */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);  /* Cambiado */
+}
+
+/* Contenedor para grupos de botones */
+.all .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.all .button-container button,
+.all .button-container .btn {
+    margin: 5px;
+    min-width: 150px;
+}
+
+/* Para alertas/mensajes */
+.all .alert,
+.all .message {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.all .alert-success {
+    background: #d1fae5;  /* Cambiado */
+    color: #065f46;  /* Cambiado */
+    border: 1px solid #a7f3d0;  /* Cambiado */
+}
+
+.all .alert-error {
+    background: #fee2e2;  /* Cambiado */
+    color: #991b1b;  /* Cambiado */
+    border: 1px solid #fecaca;  /* Cambiado */
+}
+
+/* ===== REGLAS PARA IMÁGENES - ESTO ES LO QUE FALTA ===== */
+/* ¡IMPORTANTE! Estas reglas deben estar FUERA de cualquier media query */
+
+/* Control para TODAS las imágenes */
+.all img {
+    /* Forzar tamaño máximo */
+    max-width: 400px !important;
+    max-height: 300px !important;
+    
+    /* Mantener proporción */
+    width: auto !important;
+    height: auto !important;
+    
+    /* Centrado */
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    
+    /* Estilos visuales */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);  /* Cambiado */
+    
+    /* Asegurar que no se distorsione */
+    object-fit: contain;
+}
+
+/* Si hay imágenes específicas que necesitan otros tamaños */
+.all img.img-small {
+    max-width: 200px !important;
+    max-height: 150px !important;
+}
+
+.all img.img-medium {
+    max-width: 400px !important;
+    max-height: 300px !important;
+}
+
+.all img.img-large {
+    max-width: 600px !important;
+    max-height: 400px !important;
+}
+
+/* Para logos o iconos */
+.all img[src*="logo"],
+.all img[src*="icon"] {
+    max-width: 150px !important;
+    max-height: 100px !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .menu > li > a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);  /* Cambiado */
+        border-left: 4px solid transparent;
+    }
+    
+    .menu > li > a:hover {
+        border-left: 4px solid #f59e0b;  /* Cambiado */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);  /* Cambiado */
+        padding-left: 16px;
+    }
+    
+    .submenu {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: none;
+        border-left: 4px solid #7c3aed;  /* Cambiado */
+        margin-top: 0;
+        background: rgba(255, 255, 255, 0.98);  /* Cambiado */
+    }
+    
+    .submenu li a {
+        padding-left: 40px;
+    }
+    
+    /* Ajustes responsive para contenido centrado */
+    .all {
+        padding: 25px;
+        margin: 25px auto;
+    }
+    
+    .all > * {
+        max-width: 100%;
+    }
+    
+    .all form {
+        padding: 20px;
+    }
+    
+    .all .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .all .button-container button,
+    .all .button-container .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Ajustes responsive para imágenes */
+    .all img {
+        max-width: 90% !important;
+        max-height: 250px !important;
+    }
+}
+
+/* ===== ESTILOS ADICIONALES ===== */
+/* Para resaltar la página activa */
+.menu > li > a.active {
+    background-color: rgba(255, 255, 255, 0.2);  /* Cambiado */
+    border-bottom: 3px solid #f59e0b;  /* Cambiado */
+    font-weight: 600;
+}
+
+/* Animación suave para todo el navbar */
+.navbar, .menu > li > a, .submenu li a {
+    transition: all 0.3s ease;
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .menu {
+        max-width: 1400px;
+    }
+    
+    .menu > li > a {
+        padding: 20px 30px;
+        font-size: 17px;
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 576px) {
+    .all {
+        padding: 20px 15px;
+        margin: 15px;
+    }
+    
+    .menu > li > a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .all h1 {
+        font-size: 2rem;
+    }
+    
+    .all h2 {
+        font-size: 1.5rem;
+    }
+    
+    .all h3 {
+        font-size: 1.2rem;
+    }
+    
+    .all form {
+        padding: 15px;
+    }
+    
+    /* Ajustes extra para imágenes en móviles */
+    .all img {
+        max-width: 100% !important;
+        max-height: 200px !important;
+    }
+}

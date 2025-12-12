@@ -1,0 +1,29 @@
+{% extends 'extras/navegacion.html' %}
+
+{% block pag %}
+
+<title>Create Product</title>
+<h1>Crear un nuevo Producto</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    {{ forms.title.label_tag }} {{ forms.title }}
+    <br><br>
+
+    {{ forms.price.label_tag }} {{ forms.price }}
+    <br><br>
+
+    <label for="store">Store</label>
+    <select name="store" id="store">
+        {% for s in stores %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+    
+    <button class="btn">Save</button>
+</form>
+
+{% endblock %}

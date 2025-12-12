@@ -1,0 +1,11 @@
+{% extends 'extras/navegacion.html' %}
+
+{% block pag %}
+<title>Products </title>
+<h1>Products</h1>
+
+{% for product in products %}
+<h3>{% if product.sold == True %} 🔴 {% else %} 🟢 {% endif %}{{ product.title }} --- {{ product.price }}</h3>
+{% endfor %}   
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'extras/navegacion.html' %}
+
+{% block pag %}
+<h1>Buscar Store</h1>
+
+<form method="get">
+    <input type="text" name="kword" placeholder="Escribe el nombre" class="textinp" value="{{ kword }}">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if stores %}
+    <h2>Resultados:</h2>
+    <ul>
+    {% for store in stores %}
+        <li>{{ store.name }} - {{ store.description }}</li>
+    {% endfor %}
+    </ul>
+{% elif kword %}
+    <p>No se encontró ninguna tienda con '{{ kword }}'.</p>
+{% endif %}
+
+{% endblock %}
